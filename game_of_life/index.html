@@ -6,7 +6,39 @@
     </head>
     <body>
         <header></header>
-        <main><canvas class="canvas" id="canvas" height="500" width="750"></canvas></main>
+        <main>
+            <canvas class="canvas" id="canvas" height="500" width="750"></canvas>
+            <div class="form">
+                <div class="form-entry">
+                    <label for="width">
+                        <span>Largeur de la grille</span>
+                        <span id="width-value">50</span>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="width"
+                        name="width"
+                        min="10"
+                        max="100"
+                        aria-label="width-value" />
+                </div>
+                <div class="form-entry">
+                    <label for="height">
+                        <span>Hauteur de la grille</span>
+                        <span id="height-value">50</span>
+                    </label>
+                    <input
+                        type="range"
+                        id="height"
+                        name="height"
+                        min="10"
+                        max="100"
+                        aria-label="height-value" />
+                </div>
+                <button onclick="runGameOfLife(150, 10)">Run</button>
+            </div>
+        </main>
         <footer></footer>
     </body>
 </html>
