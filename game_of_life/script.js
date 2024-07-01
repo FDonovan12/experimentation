@@ -1,5 +1,5 @@
 const sizePixel = 10;
-let list = [[]];
+let list = Array.apply(null, Array(100)).map((e) => Array.apply(null, Array(100)).map((e) => 0));
 
 window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas');
@@ -37,11 +37,9 @@ function setCanvasSize(height, width) {
     canvas.height = height * sizePixel + 1;
 }
 
-function setListSize(height, width) {
-    list = Array.apply(null, Array(width)).map((e) =>
-        Array.apply(null, Array(height)).map((e) => 0)
-    );
-}
+// function setListSize(height, width) {
+//     list = Array.apply(null, Array(100)).map((e) => Array.apply(null, Array(100)).map((e) => 0));
+// }
 
 function initGameOfLife() {
     const canvas = document.getElementById('canvas');
@@ -53,7 +51,7 @@ function initGameOfLife() {
     const height = setGetInputValue(heightRange);
 
     setCanvasSize(height, width);
-    setListSize(height, width);
+    // setListSize(height, width);
 
     list[4][4] = 1;
     list[4][5] = 1;
