@@ -7,15 +7,15 @@ window.addEventListener('load', () => {
     canvas.addEventListener('click', (event) => {
         changeSquare(event);
     });
+
     const widthRange = document.getElementById('width');
-    const heightRange = document.getElementById('height');
-    getInputValue(widthRange);
     widthRange.addEventListener('input', () => {
-        getInputValue(widthRange);
+        initGameOfLife(widthRange);
     });
-    getInputValue(heightRange);
+
+    const heightRange = document.getElementById('height');
     heightRange.addEventListener('input', () => {
-        getInputValue(heightRange);
+        initGameOfLife(heightRange);
     });
     initGameOfLife();
 });
@@ -24,40 +24,44 @@ function printMousePos(event) {
     return 'clientX: ' + event.clientX + ' - clientY: ' + event.clientY;
 }
 
-function getInputValue(input) {
-    console.log('getInputValue :');
+function setGetInputValue(input) {
     const value = input.value;
     const aria = input.ariaLabel;
     const label = document.getElementById(aria);
     label.textContent = value;
-    setCanvasSize();
-    printGameOfLife();
+    return parseInt(value);
 }
 
-function setCanvasSize() {
-    const canvas = document.getElementById('canvas');
+function setCanvasSize(height, width) {
+    canvas.width = width * sizePixel + 1;
+    canvas.height = height * sizePixel + 1;
+}
 
-    const widthValue = document.getElementById('width').value;
-    canvas.width = widthValue * sizePixel + 1;
-
-    const heightValue = document.getElementById('height').value;
-    canvas.height = heightValue * sizePixel + 1;
-    ctx = canvas.getContext('2d');
+function setListSize(height, width) {
+    list = Array.apply(null, Array(width)).map((e) =>
+        Array.apply(null, Array(height)).map((e) => 0)
+    );
 }
 
 function initGameOfLife() {
     const canvas = document.getElementById('canvas');
-    setCanvasSize();
-    ctx = canvas.getContext('2d');
-    const width = Math.trunc(canvas.width / sizePixel);
-    const height = Math.trunc(canvas.height / sizePixel);
-    ctx.fillRect(0, 0, width * sizePixel + 1, height * sizePixel + 1);
-    list = Array.apply(null, Array(width)).map((e) =>
-        Array.apply(null, Array(height)).map((e) => 0)
-    );
+
+    const widthRange = document.getElementById('width');
+    const heightRange = document.getElementById('height');
+
+    const width = setGetInputValue(widthRange);
+    const height = setGetInputValue(heightRange);
+
+    setCanvasSize(height, width);
+    setListSize(height, width);
+
     list[4][4] = 1;
     list[4][5] = 1;
     list[4][6] = 1;
+
+    ctx = canvas.getContext('2d');
+    ctx.fillRect(0, 0, width * sizePixel + 1, height * sizePixel + 1);
+
     printGameOfLife();
 }
 

@@ -67,16 +67,19 @@ footer {
 main {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+canvas {
+    height: fit-content;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 250px;
     gap: 1rem;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 .form-entry {
     display: flex;
