@@ -1,3 +1,4 @@
+const sizePixel = 10;
 window.addEventListener('click', (event) => {});
 
 window.addEventListener('load', () => {

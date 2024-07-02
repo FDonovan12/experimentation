@@ -81,8 +81,14 @@ function createLinkNav(nav, href, text) {
 function getURlRoot() {
     const href = window.location.href;
     const pathname = window.location.pathname;
+    if (href.includes('github')) {
+        pathname.replace('/experimentation', '');
+    }
     const regexName = new RegExp(pathname + '$');
     const urlRoot = href.replace(regexName, '');
+    console.log('href :', href);
+    console.log('pathname :', pathname);
+    console.log('urlRoot :', urlRoot);
     return urlRoot;
 }
 function setTitle() {
