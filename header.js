@@ -82,7 +82,7 @@ function getURlRoot() {
     const pathname = window.location.pathname;
     const href = window.location.href;
     // href = 'https://fdonovan12.github.io/experimentation/fractal/';
-    console.log('test :');
+    console.log('test 2 :');
     if (href.includes('github')) {
         console.log('github :');
         pathname.replace('/experimentation', '');
