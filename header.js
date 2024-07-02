@@ -82,17 +82,7 @@ function getURlRoot() {
     const pathname = window.location.pathname.replace('/experimentation', '');
     const href = window.location.href;
     const regexName = new RegExp(pathname + '$');
-
     let urlRoot = href.replace(regexName, '');
-    console.log('href :', href);
-    console.log('pathname :', pathname);
-    console.log('urlRoot :', urlRoot);
-    // href = window.location.href;
-
-    // urlRoot = href.replace(regexName, '');
-    // console.log('href :', href);
-    // console.log('pathname :', pathname);
-    // console.log('urlRoot :', urlRoot);
     return urlRoot;
 }
 function setTitle() {
