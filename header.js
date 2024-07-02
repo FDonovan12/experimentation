@@ -79,16 +79,8 @@ function createLinkNav(nav, href, text) {
 }
 
 function getURlRoot() {
-    const pathname = window.location.pathname;
+    const pathname = window.location.pathname.replace('/experimentation', '');
     const href = window.location.href;
-    // href = 'https://fdonovan12.github.io/experimentation/fractal/';
-    console.log('test 2 :');
-    if (href.includes('github')) {
-        console.log('github :');
-        pathname.replace('/experimentation', '');
-    } else {
-        console.log('no github :');
-    }
     const regexName = new RegExp(pathname + '$');
 
     let urlRoot = href.replace(regexName, '');
