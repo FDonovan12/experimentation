@@ -82,6 +82,7 @@ function getURlRoot() {
     const href = window.location.href;
     const pathname = window.location.pathname;
     if (href.includes('github')) {
+        console.log('github :');
         pathname.replace('/experimentation', '');
     }
     const regexName = new RegExp(pathname + '$');
