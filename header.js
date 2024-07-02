@@ -84,6 +84,8 @@ function getURlRoot() {
     if (href.includes('github')) {
         console.log('github :');
         pathname.replace('/experimentation', '');
+    } else {
+        console.log('no github :');
     }
     const regexName = new RegExp(pathname + '$');
     const urlRoot = href.replace(regexName, '');
