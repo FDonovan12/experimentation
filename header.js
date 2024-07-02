@@ -81,6 +81,7 @@ function createLinkNav(nav, href, text) {
 function getURlRoot() {
     const href = window.location.href;
     const pathname = window.location.pathname;
+    console.log('test :');
     if (href.includes('github')) {
         console.log('github :');
         pathname.replace('/experimentation', '');
