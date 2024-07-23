@@ -1,11 +1,21 @@
 window.addEventListener('click', (event) => {});
 
-window.addEventListener('load', () => {});
-
-hanoiTowerResolution(3);
+window.addEventListener('load', () => {
+    const hanoiInput = document.querySelector('#hanoiInput');
+    hanoiTowerResolution(parseInt(hanoiInput.value));
+    hanoiInput.addEventListener('change', () => {
+        hanoiTowerResolution(parseInt(hanoiInput.value));
+    });
+});
 
 function hanoiTowerResolution(nbRings) {
-    const tab = [Array.from(Array(nbRings).keys()).reverse(), [], []];
+    console.log('\nstart\n');
+    const initFirstTower = Array.from(Array(nbRings).keys()).reverse();
+    const tab = [initFirstTower, [], []];
+    printHanoiTower(tab);
+    if (typeof nbRings === 'string') {
+        throw new Error();
+    }
     console.log(tab);
     hanoiTowerResolutionRecursive(tab, nbRings, 0, 2);
     console.log(tab);
