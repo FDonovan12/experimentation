@@ -12,10 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const file_map = {
-    '/': 'Accueil',
+    // '/': 'Accueil',
     '/fractal/': 'Fractal',
     '/game_of_life/': 'Jeu de la vie',
     '/minecraft_beacon/': 'Beacon Minecraft',
+    '/hanoi_tower/': 'Tour de Hanoi',
 };
 
 function baliseClass(name_balise, class_balise, balise_parent, content) {

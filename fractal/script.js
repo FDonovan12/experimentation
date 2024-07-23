@@ -17,9 +17,6 @@ const zoomValue = 0.1;
 let colorZoom = 1;
 let zoom = false;
 
-const sizePixel = 10;
-let list = null;
-
 function printMousePos(event) {
     return 'clientX: ' + event.clientX + ' - clientY: ' + event.clientY;
 }
@@ -77,7 +74,6 @@ function drawFractal(xmin, xmax, ymin, ymax, maxIterations) {
                     default:
                         break;
                 }
-                // ctx.fillStyle = `rgb(${color}, ${secondColor}, ${secondColor})`;
             } else {
                 ctx.fillStyle = `rgb(0, 0, 0)`;
             }
