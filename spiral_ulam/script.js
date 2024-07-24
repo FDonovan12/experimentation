@@ -41,22 +41,22 @@ function drawSpiral() {
 function printSquare(ctx, point, direction) {
     switch (direction) {
         case 0:
-            ctx.fillStyle = `rgb(${0},${0},${0})`;
+            ctx.fillStyle = `rgb(0,0,0)`;
             break;
         case 1:
-            ctx.fillStyle = `rgb(${255},${0},${0})`;
+            ctx.fillStyle = `rgb(255,0,0)`;
             break;
         case 2:
-            ctx.fillStyle = `rgb(${0},${255},${0})`;
+            ctx.fillStyle = `rgb(0,255,0)`;
             break;
         case 3:
-            ctx.fillStyle = `rgb(${0},${0},${255})`;
+            ctx.fillStyle = `rgb(0,0,255)`;
             break;
 
         default:
             break;
     }
-    ctx.fillStyle = `rgb(${0},${0},${0})`;
+    ctx.fillStyle = `rgb(0,0,0)`;
     ctx.fillRect(point.width, point.height, size_pixel, size_pixel);
 }
 
