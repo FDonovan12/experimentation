@@ -17,6 +17,7 @@ const file_map = {
     '/game_of_life/': 'Jeu de la vie',
     '/minecraft_beacon/': 'Beacon Minecraft',
     '/hanoi_tower/': 'Tour de Hanoi',
+    '/spiral_ulam/': "Spirale d'Ulam",
 };
 
 function baliseClass(name_balise, class_balise, balise_parent, content) {

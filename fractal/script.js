@@ -56,31 +56,58 @@ function drawFractal(xmin, xmax, ymin, ymax, maxIterations) {
                 count[iterations] = 0;
             }
             count[iterations]++;
-
             const color = 255 * (((iterations + 0) / maxIterations) * (4 / colorZoom));
-            const secondColor = color / 2;
+            drawOnePoint(iterations, color, ctx);
 
-            if (iterations != maxIterations) {
-                switch (iterations % 3) {
-                    case 0:
-                        ctx.fillStyle = `rgb(${color}, ${secondColor}, ${secondColor})`;
-                        break;
-                    case 1:
-                        ctx.fillStyle = `rgb(${secondColor}, ${color}, ${secondColor})`;
-                        break;
-                    case 2:
-                        ctx.fillStyle = `rgb(${secondColor}, ${secondColor}, ${color})`;
-                        break;
-                    default:
-                        break;
-                }
-            } else {
-                ctx.fillStyle = `rgb(0, 0, 0)`;
-            }
+            // const secondColor = color / 2;
 
-            ctx.fillRect(x, y, 1, 1);
+            // if (iterations != maxIterations) {
+            //     switch (iterations % 3) {
+            //         case 0:
+            //             ctx.fillStyle = `rgb(${color}, ${secondColor}, ${secondColor})`;
+            //             break;
+            //         case 1:
+            //             ctx.fillStyle = `rgb(${secondColor}, ${color}, ${secondColor})`;
+            //             break;
+            //         case 2:
+            //             ctx.fillStyle = `rgb(${secondColor}, ${secondColor}, ${color})`;
+            //             break;
+            //         default:
+            //             break;
+            //     }
+            // } else {
+            //     ctx.fillStyle = `rgb(0, 0, 0)`;
+            // }
+            // ctx.fillRect(x, y, 1, 1);
         }
     }
+}
+
+function drawOnePoint(iterations, color, ctx) {
+    // console.log(iterations);
+    // console.log(maxIterations);
+    // console.log(ctx);
+    // console.log(colorZoom);
+    const secondColor = color / 2;
+
+    if (iterations != maxIterations) {
+        switch (iterations % 3) {
+            case 0:
+                ctx.fillStyle = `rgb(${color}, ${secondColor}, ${secondColor})`;
+                break;
+            case 1:
+                ctx.fillStyle = `rgb(${secondColor}, ${color}, ${secondColor})`;
+                break;
+            case 2:
+                ctx.fillStyle = `rgb(${secondColor}, ${secondColor}, ${color})`;
+                break;
+            default:
+                break;
+        }
+    } else {
+        ctx.fillStyle = `rgb(0, 0, 0)`;
+    }
+    ctx.fillRect(x, y, 1, 1);
 }
 
 function prepareZoom(event) {
