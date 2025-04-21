@@ -199,7 +199,9 @@ function compareFilterAndForIf() {
     console.log(countTimeIsZero);
     console.log(3 * nbInstance * 3 * sizeArrays.length);
 }
-// compareFilterAndForIf();
+console.log('start');
+compareFilterAndForIf();
+console.log('mid');
 secondCompareFilterAndForIf();
 console.log('end');
 
